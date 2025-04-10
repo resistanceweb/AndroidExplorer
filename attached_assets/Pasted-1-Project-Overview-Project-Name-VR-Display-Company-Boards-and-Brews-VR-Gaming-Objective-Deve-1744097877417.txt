@@ -1,0 +1,135 @@
+1. Project Overview
+
+Project Name: VR Display
+
+Company: Boards and Brews VR Gaming
+
+Objective:
+
+Develop a Native Android application for Android TV (Display App) and Android Phone (Control App). The phone app allows users to manage the waiting list, team details, and promotional content, while the TV app displays promotional videos, team waiting lists, and pop-up offers to attract customers.
+
+2. System Architecture
+
+TV Interface (Display App) - Android TV
+
+Large Video Player: Aligned left with margin, loops promotional videos continuously.
+
+Company Logo: Positioned at the top-left, uploaded by admin via phone app.
+
+Waiting List Display:
+
+Located on the right side (25% width) in a carousel style.
+
+Displays team waiting list with futuristic animations.
+
+Shows the full list for 5 seconds, then transitions to next two waiting teams, looping back to the full list.
+
+Applies a futuristic gaming-style filter based on match type.
+
+Popup Offers:
+
+Displayed dynamically over the screen.
+
+Can be turned ON/OFF from the phone app.
+
+Can also be used for motivational catchphrases to encourage customers.
+
+Phone Interface (Control App) - Android Phone
+
+User Roles:
+
+Admin: Full access.
+
+Operator: Limited access (excludes video uploads).
+
+Key Features:
+
+Add Player Teams & Names: Admin & Operator can enter team details manually.
+
+Add Match Type: Admin & Operator can select Team vs Team or Domination Deathmatch.
+
+Upload Offers: Admin & Operator can add/edit offers (can be manually disabled by the admin instead of expiring automatically).
+
+Upload Promotional Videos: Admin only (videos play in a loop on TV app and cannot be deleted from the TV app).
+
+Upload Team Photos: Admin & Operator can:
+
+Capture photos dynamically from the camera or select from the gallery.
+
+AI-based styling applied within a predefined format for consistency.
+
+Manage Waiting Time Display Prompt: Admin & Operator can adjust waiting list display settings.
+
+Upload & Manage Company Logo: Admin can upload a company logo to be displayed on the TV app.
+
+3. UI & UX Design Specifications
+
+TV App UI:
+
+Theme: Dark neon background with animated highlights.
+
+Layout:
+
+Left: Large video player.
+
+Top-Left: Company logo.
+
+Right: 25% width waiting list with animated transitions.
+
+Overlay: Popup offers (toggle ON/OFF from phone app).
+
+wire frame of tv ui:
+
+-----------------------------------------------------------------+
+| [Logo Area]       [Video Player Area]       [Carousel (25% Width)] |
+|                                             | [Waiting List/Team Photos] |
+|                                             | (Alternating, 5s each)    |
++-----------------------------------------------------------------+
+| [Offer Popup Area] [Catch Phrases Area]                          |
+| [Video Controls Area]                                           |
++-----------------------------------------------------------------+
+Phone App UI:
+
+Simple & User-Friendly: Designed for quick operations.
+
+Prioritized Sections: Team and player management features should be easily accessible, as they will be used most frequently.
+
+4. Database & Storage Details
+
+Database: Firebase Firestore
+
+Collections:
+
+teams → Stores team names, player details, and team photos.
+
+videos → Stores promotional video URLs.
+
+offers → Stores promotional offers and motivational phrases.
+
+config → Stores company logo.
+
+Storage: Firebase Storage
+
+Stores team photos, company logo, and promotional videos.
+
+5. Deployment & Maintenance Plan
+
+APK Delivery:
+
+Distributed via Firebase download link & email.
+
+Internal use only (no Play Store publishing required).
+
+GitHub-based automation for APK builds.
+
+Testing & Updates:
+
+Beta Testing: Internal use only.
+
+Future Updates:
+
+UI/UX refinements based on feedback.
+
+Performance optimizations.
+
+

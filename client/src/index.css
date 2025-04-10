@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply background to body element */
+body {
+  @apply bg-dark-primary;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+@layer base {
+  :root {
+    --background: 222deg 45% 7%;
+    --foreground: 210deg 20% 98%;
+    
+    --card: 223deg 35% 15%;
+    --card-foreground: 210deg 20% 98%;
+    
+    --popover: 223deg 35% 15%;
+    --popover-foreground: 210deg 20% 98%;
+    
+    --primary: 187deg 100% 50%;
+    --primary-foreground: 222deg 45% 7%;
+    
+    --secondary: 224deg 30% 14%;
+    --secondary-foreground: 210deg 20% 98%;
+    
+    --muted: 215deg 27% 16%;
+    --muted-foreground: 217.9deg 10.6% 64.9%;
+    
+    --accent: 224deg 30% 14%;
+    --accent-foreground: 210deg 20% 98%;
+    
+    --destructive: 350deg 89% 60%;
+    --destructive-foreground: 210deg 20% 98%;
+    
+    --border: 215deg 27% 20%;
+    --input: 215deg 27% 16%;
+    --ring: 187deg 100% 50%;
+    
+    --radius: 0.5rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-exo antialiased;
+  }
+}
+
+@layer utilities {
+  .tv-display-bg {
+    @apply bg-dark-primary relative overflow-hidden;
+    background: linear-gradient(135deg, hsl(222deg 45% 7%), hsl(223deg 35% 15%));
+    position: relative;
+  }
+  
+  .tv-display-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 20px 20px;
+    background-image: 
+      linear-gradient(rgba(26, 30, 46, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 30, 46, 0.3) 1px, transparent 1px);
+    opacity: 0.5;
+    z-index: 0;
+  }
+  
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .font-exo {
+    font-family: 'Exo 2', sans-serif;
+  }
+  
+  .neon-border {
+    @apply relative border border-neon-blue;
+    box-shadow: 0 0 5px #00F0FF, inset 0 0 5px #00F0FF;
+  }
+  
+  .neon-border-pink {
+    @apply relative border border-neon-pink;
+    box-shadow: 0 0 5px #FF00FF, inset 0 0 5px #FF00FF;
+  }
+  
+  .neon-border-purple {
+    @apply relative border border-neon-purple;
+    box-shadow: 0 0 5px #8A2BE2, inset 0 0 5px #8A2BE2;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+@layer components {
+  .bg-dark-primary {
+    @apply bg-[#0A0E17];
+  }
+  
+  .bg-dark-secondary {
+    @apply bg-[#1A1E2E];
+  }
+  
+  .text-neon-blue {
+    @apply text-[#00F0FF];
+  }
+  
+  .text-neon-purple {
+    @apply text-[#8A2BE2];
+  }
+  
+  .text-neon-pink {
+    @apply text-[#FF00FF];
+  }
+  
+  .border-neon-blue {
+    @apply border-[#00F0FF];
+  }
+  
+  .border-neon-purple {
+    @apply border-[#8A2BE2];
+  }
+  
+  .border-neon-pink {
+    @apply border-[#FF00FF];
+  }
+  
+  .bg-neon-blue {
+    @apply bg-[#00F0FF];
+  }
+  
+  .bg-neon-purple {
+    @apply bg-[#8A2BE2];
+  }
+  
+  .bg-neon-pink {
+    @apply bg-[#FF00FF];
+  }
+  
+  .text-status-green {
+    @apply text-[#00FF7F];
+  }
+  
+  .text-status-red {
+    @apply text-[#FF3A5E];
+  }
+  
+  .bg-status-green {
+    @apply bg-[#00FF7F];
+  }
+  
+  .bg-status-red {
+    @apply bg-[#FF3A5E];
+  }
+}
+
+@keyframes slideUp {
+  0% { 
+    transform: translateY(20px);
+    opacity: 0; 
+  }
+  100% { 
+    transform: translateY(0);
+    opacity: 1; 
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    box-shadow: 0 0 5px #00F0FF, 0 0 10px #00F0FF, 0 0 15px #00F0FF;
+    opacity: 1;
+  }
+  50% { 
+    box-shadow: 0 0 10px #00F0FF, 0 0 20px #00F0FF, 0 0 30px #00F0FF;
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
